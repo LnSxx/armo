@@ -1,6 +1,7 @@
 const fetch = require('electron-fetch').default;
 const ipc = require('electron').ipcMain;
 const { app, BrowserWindow } = require('electron');
+const { BACKEND_URL } = require('./settings');
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -21,7 +22,7 @@ app.whenReady().then(() => {
   });
 
   ipc.on('fetchData', (event) => {
-    fetch('http://localhost:8888/')
+    fetch(BACKEND_URL)
       .then((res) => res.json())
       .then((json) => event.sender.send('responseRecieved', json))
       .catch((error) => event.sender.send('errorRecieved', error));
