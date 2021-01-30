@@ -1,4 +1,5 @@
 #!/bin/sh
+sudo pacman -Sy
 sudo pacman -S --needed npm python electron
 cd backend
 python -m venv .venv
