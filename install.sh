@@ -6,7 +6,6 @@ python -m venv .venv
 source .venv/bin/activate 
 pip install -r requirements.txt
 deactivate
-cd ..
-cd frontend
+cd ../frontend
 npm install
 cd ..
